@@ -2,6 +2,7 @@ var flash = require('connect-flash')
   , express = require('express')
   , passport = require('passport')
   , util = require('util')
+  , rest = require('./RESTroutes')
   , LocalStrategy = require('passport-local').Strategy;
   
 
@@ -93,13 +94,18 @@ app.configure(function() {
 
 
 
-app.get('/', passport.authenticate('local', {
-	successRedirect: 'index.html#/main',
-	failureRedirect: 'index.html#/login'
-}));
+// app.get('/', passport.authenticate('local', {
+// 	successRedirect: 'index.html#/main',
+// 	failureRedirect: 'index.html#/login'
+// }));
 
+app.get('/users', rest.findAll);
+app.get('/users/:id', rest.findById);
+app.post('/users', rest.addWine);
+app.put('/users/:id', rest.updateWine);
+app.delete('/users/:id', rest.deleteWine);
 
-
+console.log("application listening on port 3000")
 app.listen(3000);
 
 
@@ -112,3 +118,10 @@ function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/login')
 }
+
+
+
+
+
+
+

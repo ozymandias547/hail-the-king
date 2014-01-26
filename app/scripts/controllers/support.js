@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('hail-the-king')
-  .controller('MainCtrl', function ($scope) {
+  .controller('SupportCtrl', function ($scope) {
     $scope.inputValue = "";
   });

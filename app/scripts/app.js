@@ -1,14 +1,15 @@
 'use strict';
 
-angular.module('travianApp', [
+var hailTheKing = angular.module('hail-the-king', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
   'ngRoute'
-])
-  .config(function ($routeProvider) {
+]);
+
+hailTheKing.config(function ($routeProvider) {
     $routeProvider
-      .when('/main', {
+      .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
@@ -16,7 +17,15 @@ angular.module('travianApp', [
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/support', {
+        templateUrl: 'views/support.html',
+        controller: 'SupportCtrl'
+      })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/main'
       });
   });
+
+hailTheKing.factory('wines', function($resource) {
+  return $resource('/wines/:id', { id: '@id'}, {update: {method: 'PUT'}} )
+})

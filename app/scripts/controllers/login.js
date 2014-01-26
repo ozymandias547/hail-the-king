@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('travianApp')
-  .controller('LoginCtrl', function ($scope) {
-   	$scope.message = "please login";
+angular.module('hail-the-king')
+  .controller('LoginCtrl', function ($scope, wines) {
+  	
+  	$scope.wines = wines.query();
+
   });
