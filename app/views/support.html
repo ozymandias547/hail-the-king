@@ -3,8 +3,9 @@
   <div>
     <ul class="nav nav-pills">
       <li><a ng-href="#">Home</a></li>
-      <li><a ng-href="#login">User Info</a></li>
+      <li ng-show="!currentUser"><a ng-href="#login">Login</a></li>
       <li class="active"><a ng-href="#support">Support</a></li>
+      <li ng-show="currentUser"><a ng-click="logout()">Logout</a></li>
     </ul>
   </div>
   <div><a>Email Developer</a></div>

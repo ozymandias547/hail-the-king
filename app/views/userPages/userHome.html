@@ -1,0 +1,19 @@
+
+
+<div class="jumbotron frontPage">
+  <div>
+    <ul class="nav nav-pills">
+      <li class=""><a ng-href="#main">Home</a></li>
+      <li ng-show="!currentUser"><a ng-href="#login">Login</a></li>
+      <li><a ng-href="#support">Support</a></li>
+      <li ng-show="currentUser"><a ng-click="logout()">Logout</a></li>
+    </ul>
+  </div>
+  <h1>Hail the King</h1>
+  <section ng-init="initialize()">
+	    <h2>{{ username }}</h2> 
+	    <div>
+	        <span class="">User joined DATE</span>
+	    </div>
+	</section>
+</div>  
