@@ -1,0 +1,64 @@
+<header class="navbar navbar-default navbar-static-top" ng-controller="LoginCtrl">
+    <div class="navbar-inner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-3" ng-click="isCollapsed = !isCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- <a ng-show="!currentUser" class="navbar-brand visible-xs" >Hail The King</a> -->
+                <a ng-show="currentUser" ng-click="toUserPage()" class="navbar-brand visible-xs">Hail King {{ currentUser.username }}!</a>
+            </div>
+            <nav class="hidden-xs">
+                <!-- logged out -->
+                <form name="form" ng-submit="login(form)" novalidate>
+
+                    <ul ng-show="!currentUser" class="nav navbar-nav">
+
+                        <li>
+                            <input type="text" class="form-control" placeholder="Email" name="email" ng-model="user.email" required autofocus mongoose-error>
+                        </li>
+                        <li>
+                            <input type="password" class="form-control" placeholder="Password" name="password" ng-model="user.password" required mongoose-error>
+                        </li>
+                        <li>
+                            <button type="submit" class="btn btn-primary btn-xs">Login</button>
+                        </li>
+                    </ul>
+                </form>
+
+                <!-- ENDOF logged out -->
+                <!-- logged in -->
+                <ul ng-show="currentUser" class="nav navbar-nav">
+                    <li><a ng-click="toUserPage()" class="navbar-brand">Hail King {{ currentUser.username }}!</a>
+                    </li>
+                </ul>
+                <!-- ENDOF logged in -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a ng-href="#home">Home</a>
+                    </li>
+                    <li><a ng-href="#support">Contact</a>
+                    </li>
+                    <li><a ng-show="currentUser" href="#" ng-click="logout()">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <nav collapse="!isCollapsed">
+                <ul class="nav navbar-nav">
+                    <li><a href="#home" ng-click="isCollapsed = !isCollapsed">Home</a>
+                    </li>
+                    <li ng-show="!currentUser"><a href="#login" ng-click="isCollapsed = !isCollapsed">Login</a>
+                    </li>
+                    <li ng-show="currentUser"><a ng-click="isCollapsed = !isCollapsed; logout()">Logout</a>
+                    </li>
+                    <li><a href="#support" ng-click="isCollapsed = !isCollapsed">Help</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<div class="header-placeholder"></div>

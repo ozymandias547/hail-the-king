@@ -1,33 +1,9 @@
 
 <div class="jumbotron frontPage">
-  <div>
-    <ul class="nav nav-pills">
-      <li class="active"><a ng-href="#">Home</a></li>
-      <li ng-show="!currentUser"><a ng-href="#login">Login</a></li>
-      <li><a ng-href="#support">Support</a></li>
-      <li ng-show="currentUser"><a ng-click="logout()">Logout</a></li>
-    </ul>
-  </div>
-  <h1>Hail the King</h1>
-  <p class="lead">
-    <img class="logo" src="images/hailTheKingIcon.png" alt="I'm Yeoman"><br>
-    Welcome to the online kingdom building game.
-  </p>
-  
-  <!-- logged out state -->
-  <p ng-show="!currentUser">
-    <a ng-show="!currentUser"class="btn btn-lg btn-success" ng-href="#signup">Sign up</a>
-  </p>
-  
-  <!-- logged in state -->
-  <p ng-show="currentUser">
-    <h2 ng-show="currentUser">Hello {{currentUser.username}}</h2>
-    <a ng-show="currentUser" class="btn btn-lg btn-success" ng-href="#login">Start Playing</a>
-  </p>
-
-  <div class="footer">
-    <p>by Joseph Jung</p>
-  </div>
+  <h1>Hail the King<img class="logo" src="images/hailTheKingIcon.png" alt="I'm Yeoman"><br></h1>
+  <p class="lead">Welcome to the online kingdom building game.</p>
+  <a ng-show="!currentUser" ng-href="#signup" type="button" class="btn btn-danger">Play Hail The King</a>
+  <button ng-show="currentUser" ng-click="toUserPage()" type="button" class="btn btn-danger">Play Hail The King</button>
 </div>  
 
 

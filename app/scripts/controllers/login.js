@@ -5,6 +5,10 @@ angular.module('hail-the-king')
   	$scope.error = {};
   	$scope.user = {};
 
+    $scope.toUserPage = function() {
+      $location.path('/userpage/' + $rootScope.currentUser.username);
+    }
+    
   	$scope.login = function(form) {
   		Auth.login('password', {
   			'email': $scope.user.email,
@@ -13,7 +17,6 @@ angular.module('hail-the-king')
   			$scope.errors = {};
 
   			if (!err) {
-  				console.log($rootScope)
           $location.path('/userpage/' + $rootScope.currentUser.username);
   			} else {
   				angular.forEach(err.errors, function(error, field) {

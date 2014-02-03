@@ -4,7 +4,8 @@ var hailTheKing = angular.module('hail-the-king', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'ui.bootstrap'
 ]);
 
 hailTheKing.config(function ($routeProvider) {
@@ -60,3 +61,4 @@ hailTheKing.run(function($rootScope, $location, Auth) {
     return false;
   })
 })
+
